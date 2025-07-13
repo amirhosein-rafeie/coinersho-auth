@@ -1,24 +1,18 @@
 "use client";
-import Input from "@/components/Input";
-import styles from "./page.module.scss";
-import { ChangeEvent, useState } from "react";
-import Button from "@/components/Button";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const router = useRouter();
 
-  const handlePhoneNumberChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setPhoneNumber(e.target.value);
-  };
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    if (user) {
+      router.replace("/dashboard");
+    } else {
+      router.push("/auth");
+    }
+  }, [router]);
 
-  const handleLogin = () => {
-    console.log(phoneNumber);
-  };
-
-  return (
-    <div className={styles.container}>
-      <Input value={phoneNumber} onChange={handlePhoneNumberChange} />
-      <Button onClick={handleLogin}>ورود</Button>
-    </div>
-  );
+  return null;
 }
