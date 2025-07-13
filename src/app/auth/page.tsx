@@ -31,14 +31,21 @@ export default function Auth() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.imageContainer}></div>
       <div className={styles.formContainer}>
-        <h3 className={styles.title}>ورود به کوینرشو</h3>
-        <Input value={phoneNumber} onChange={handlePhoneNumberChange} />
+        <h3 className={styles.title}>
+          Coiner<span className={styles.span}>Sho</span>
+        </h3>
+
+        <Input
+          placeholder="Phone Number"
+          value={phoneNumber}
+          onChange={handlePhoneNumberChange}
+        />
         <Button isLoading={isLoading} onClick={handleLogin}>
-          ورود
+          login
         </Button>
       </div>
+      <div className={styles.imageContainer}></div>
     </div>
   );
 }

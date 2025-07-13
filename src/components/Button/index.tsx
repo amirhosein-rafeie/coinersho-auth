@@ -1,13 +1,11 @@
-import React, { ButtonHTMLAttributes } from "react";
+import React from "react";
 import styles from "./Button.module.scss";
+import { ButtonProps } from "@/app/types/props";
 
-const Button = ({
-  isLoading,
-  ...props
-}: ButtonHTMLAttributes<HTMLButtonElement> & { isLoading: boolean }) => {
+const Button = ({ isLoading, ...props }: ButtonProps) => {
   return (
     <button className={styles.button} disabled={isLoading} {...props}>
-      {isLoading ? "در حال ورود..." : props.children}
+      {isLoading ? "loading..." : props.children}
     </button>
   );
 };
