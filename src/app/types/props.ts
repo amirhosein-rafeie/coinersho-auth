@@ -1,7 +1,7 @@
 import { ButtonHTMLAttributes, InputHTMLAttributes } from "react";
 
 export type InputProps = InputHTMLAttributes<HTMLInputElement> & {
-  label?: string;
+  error?: string;
 };
 
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
